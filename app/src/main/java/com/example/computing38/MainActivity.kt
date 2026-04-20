@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,39 +37,76 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainBody() {
+
+
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-            .padding(15.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_arrow_back_ios_24),
-                contentDescription = "Back Arrow"
-            )
+modifier = Modifier
+    .fillMaxSize()
+    .background(Color.White)
+    .padding(15.dp)
 
-            Text(
-                text = "Krish",
-                style = TextStyle(
-                    fontSize = 24.sp,
-                    color = Color.Black,
-                    fontWeight = FontWeight.W900,
-                    fontStyle = FontStyle.Italic,
-                    textAlign = TextAlign.Center
-                )
-            )
 
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_more_horiz_24),
-                contentDescription = "Menu"
-            )
-        }
+    )
+    {
+TopBar()
+        Spacer(modifier = Modifier.height(20.dp))
+        ProfileSection()
     }
 }
+
+@Composable
+fun TopBar(){
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Icon(
+            painter = painterResource(id = R.drawable.baseline_arrow_back_ios_24),
+            contentDescription = "Back Arrow"
+        )
+
+        Text(
+            text = "Krish",
+            style = TextStyle(
+                fontSize = 24.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.W900,
+                fontStyle = FontStyle.Italic,
+                textAlign = TextAlign.Center
+            )
+        )
+
+        Icon(
+            painter = painterResource(id = R.drawable.baseline_more_horiz_24),
+            contentDescription = "Menu"
+        )
+    }
+}
+
+@Composable
+fun ProfileSection()
+{
+    Row(
+modifier = Modifier
+    .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    )
+    {
+        Image(
+            painter = painterResource(id = R.drawable.pramesh),
+            contentDescription = "High",
+            modifier = Modifier.size(80.dp)
+        )
+
+
+    }
+}
+
+
+
+
+
+
 
 @Preview(showBackground = true)
 @Composable
